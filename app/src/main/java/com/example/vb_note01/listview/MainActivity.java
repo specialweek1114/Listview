@@ -2,8 +2,9 @@ package com.example.vb_note01.listview;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.Adapter;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
@@ -20,22 +21,45 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        List<String> hiraganaList = new ArrayList<>();
-        hiraganaList.add("あ");
-        hiraganaList.add("い");
-        hiraganaList.add("う");
-        hiraganaList.add("え");
-        hiraganaList.add("お");
+        List<ListViewData> hiraganaList = new ArrayList<>();
+        hiraganaList.add(new ListViewData("あ", "A"));
+        hiraganaList.add(new ListViewData("い", "I"));
+        hiraganaList.add(new ListViewData("う", "U"));
+        hiraganaList.add(new ListViewData("え", "E"));
+        hiraganaList.add(new ListViewData("お", "O"));
 
         // リストビューをとってくる
         ListView listView = this.findViewById(R.id.list_view);
 
         // アダプター経由でListViewに　あいうえお　をいれる
-        ListAdapter ListViewAdapter = new ArrayAdapter<String>(
+        ListAdapter ListViewAdapter = new ArrayAdapter<ListViewData>(
                 this.getApplicationContext(),
-                android.R.layout.simple_list_item_1,
+                R.layout.list_view_inner,
                 hiraganaList
-        );
+        ){
+            @Override
+            public View getView(
+                    int position,
+                    View convertView,
+                    ViewGroup parent
+            ){
+                LayoutInflater mInflater = LayoutInflater.from(this.getContext());
+
+                if (convertView == null){
+                    convertView = mInflater.inflate(R.layout.list_view_inner, parent, false);
+                }
+
+                ListViewData rowData = getItem(position);
+
+                TextView lt = convertView.findViewById(R.id.left_text);
+                lt.setText(rowData.getLeftText());
+
+                TextView rt = convertView.findViewById(R.id.right_text);
+                rt.setText(rowData.getRightText());
+
+                return convertView;
+            }
+        };
 
         final TextView topText = this.findViewById(R.id.top_text);
 
@@ -48,15 +72,15 @@ public class MainActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 ListView listView = (ListView) adapterView;
 //                String hiragana = (String) listView.getSelectedItem();
-                String hiragana = (String) listView.getItemAtPosition(i);
-                topText.setText(hiragana);
+                ListViewData hiragana = (ListViewData) listView.getItemAtPosition(i);
+                topText.setText(hiragana.getLeftText());
 
             }
         });
     }
 
 //    inner class
-    class ListVieData {
+    class ListViewData {
         private final String leftText;
         private final String rightText;
 
