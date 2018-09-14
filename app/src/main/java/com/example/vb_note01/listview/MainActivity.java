@@ -60,6 +60,14 @@ public class MainActivity extends AppCompatActivity {
         private final String leftText;
         private final String rightText;
 
+    public String getLeftText() {
+        return leftText;
+    }
+
+    public String getRightText() {
+        return rightText;
+    }
+
     //        コンストラクタ
         public ListViewData( String leftText, String rightText){
             this.leftText = leftText;
