@@ -71,7 +71,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 ListView listView = (ListView) adapterView;
-//                String hiragana = (String) listView.getSelectedItem();
                 ListViewData hiragana = (ListViewData) listView.getItemAtPosition(i);
                 topText.setText(hiragana.getLeftText());
 
