@@ -26,11 +26,6 @@ public class MainActivity extends AppCompatActivity {
         hiraganaList.add("う");
         hiraganaList.add("え");
         hiraganaList.add("お");
-        hiraganaList.add("つけ麺");
-        hiraganaList.add("ラーメン");
-        hiraganaList.add("そば");
-        hiraganaList.add("うどん");
-        hiraganaList.add("麺類");
 
         // リストビューをとってくる
         ListView listView = this.findViewById(R.id.list_view);
@@ -58,5 +53,17 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+//    inner class
+    class ListVieData {
+        private final String leftText;
+        private final String rightText;
+
+    //        コンストラクタ
+        public ListViewData( String leftText, String rightText){
+            this.leftText = leftText;
+            this.rightText = rightText;
+        }
     }
 }
