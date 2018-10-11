@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
@@ -22,12 +23,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         List<ListViewData> hiraganaList = new ArrayList<>();
-        hiraganaList.add(new ListViewData("あ", "A"));
-        hiraganaList.add(new ListViewData("い", "I"));
-        hiraganaList.add(new ListViewData("う", "U"));
-        hiraganaList.add(new ListViewData("え", "E"));
-        hiraganaList.add(new ListViewData("お", "O"));
-
+        for (int i = 1; i <= 100; i++) {
+            hiraganaList.add(new ListViewData(""+i+"", ""+i+""));
+        }
+        for (int i = 101; i <= 130; i++) {
+            hiraganaList.add(new ListViewData("dead", "dead"));
+        }
         // リストビューをとってくる
         ListView listView = this.findViewById(R.id.list_view);
 
@@ -67,13 +68,29 @@ public class MainActivity extends AppCompatActivity {
         listView.setAdapter(ListViewAdapter);
 
         // CLICKイベントを設定
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                ListView listView = (ListView) adapterView;
-                ListViewData hiragana = (ListViewData) listView.getItemAtPosition(i);
-                topText.setText(hiragana.getLeftText());
+//        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+//                ListView listView = (ListView) adapterView;
+//                ListViewData hiragana = (ListViewData) listView.getItemAtPosition(i);
+//                topText.setText(hiragana.getLeftText());
+//
+//            }
+//        });
 
+        listView.setOnScrollListener(new AbsListView.OnScrollListener() {
+            int firstItem;
+
+            @Override
+            public void onScrollStateChanged(AbsListView view, int scrollState) {
+                if(scrollState == 0){
+                    topText.setText(""+this.firstItem+"");
+                }
+            }
+
+            @Override
+            public void onScroll(AbsListView view, int firstItemIndex, int visibleItem, int toatlItemCount) {
+                this.firstItem = firstItemIndex;
             }
         });
     }
