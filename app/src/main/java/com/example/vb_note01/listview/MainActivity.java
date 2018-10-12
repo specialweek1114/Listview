@@ -83,8 +83,25 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onScrollStateChanged(AbsListView view, int scrollState) {
-                if(scrollState == 0){
-                    topText.setText(""+this.firstItem+"");
+                if (scrollState == 0) {
+                    if (this.firstItem <= 50) {
+                        topText.setText("" + this.firstItem + "point チキン野郎！");
+                    }
+                    if( this.firstItem > 50 && this.firstItem <= 75 ) {
+                        topText.setText("" + this.firstItem + "point なかなか ");
+                    }
+                    if( this.firstItem > 75 && this.firstItem <= 90 ) {
+                        topText.setText("" + this.firstItem + "point 勇気あり ");
+                    }
+                    if( this.firstItem > 90 && this.firstItem <= 99 ) {
+                        topText.setText("" + this.firstItem + "point 真の勇者 ");
+                    }
+                    if( this.firstItem == 100 ) {
+                        topText.setText("" + this.firstItem + "point パーフェクト！");
+                    }
+                    if( this.firstItem > 100 ){
+                        topText.setText("死にました");
+                    }
                 }
             }
 
