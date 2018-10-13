@@ -1,4 +1,5 @@
 package com.example.vb_note01.listview;
+// C:\Users\vb_note01\Documents\android_lesson\calc2.jks
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -129,6 +130,8 @@ public class MainActivity extends AppCompatActivity {
 
                             //リストビューを先頭に移動
                             listView.setSelection(0);
+
+                            // スクロール有効化
                             listView.setOnTouchListener(new View.OnTouchListener() {
                                 @Override
                                 public boolean onTouch(View v, MotionEvent event) {
