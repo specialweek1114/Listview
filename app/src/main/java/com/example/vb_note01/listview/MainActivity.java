@@ -45,6 +45,8 @@ public class MainActivity extends AppCompatActivity {
         }
         // リストビューをとってくる
         final ListView listView = this.findViewById(R.id.list_view);
+        //リストビューを先頭に移動
+        listView.setSelection(0);
 
         // アダプター経由でListViewに　あいうえお　をいれる
         ListAdapter ListViewAdapter = new ArrayAdapter<ListViewData>(
