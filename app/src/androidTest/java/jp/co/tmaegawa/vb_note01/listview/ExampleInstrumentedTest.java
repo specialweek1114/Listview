@@ -1,4 +1,4 @@
-package com.example.vb_note01.listview;
+package jp.co.tmaegawa.vb_note01.listview;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.example.vb_note01.listview", appContext.getPackageName());
+        assertEquals("jp.co.tmaegawa.vb_note01.listview", appContext.getPackageName());
     }
 }

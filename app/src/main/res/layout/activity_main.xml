@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/Layout"
-    tools:context="com.example.vb_note01.listview.MainActivity">
+    tools:context="jp.co.tmaegawa.vb_note01.listview.MainActivity">
 
     <TextView
         android:id="@+id/top_text"

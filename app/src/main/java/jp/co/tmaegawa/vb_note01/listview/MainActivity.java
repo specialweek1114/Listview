@@ -1,4 +1,4 @@
-package com.example.vb_note01.listview;
+package jp.co.tmaegawa.vb_note01.listview;
 // C:\Users\vb_note01\Documents\android_lesson\calc2.jks
 
 import android.annotation.SuppressLint;
@@ -37,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
         final TextView result_message = this.findViewById(R.id.result_message);
 
         List<ListViewData> hiraganaList = new ArrayList<>();
+
         for (int i = 1; i <= 100; i++) {
             hiraganaList.add(new ListViewData(""+i+"", ""+i+""));
         }
@@ -100,6 +101,7 @@ public class MainActivity extends AppCompatActivity {
                     }else if( this.firstItem == 100 ) {
                         result_message.setText("パーフェクト！");
                     }else if( this.firstItem > 100 ){
+                        resultScore.setText("dead");
                         result_message.setText("死にました");
                     }
 

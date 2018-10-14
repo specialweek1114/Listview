@@ -1,4 +1,4 @@
-package com.example.vb_note01.listview;
+package jp.co.tmaegawa.vb_note01.listview;
 
 import org.junit.Test;
 
