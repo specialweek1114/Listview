@@ -5,25 +5,47 @@ android:layout_width="match_parent"
 android:layout_height="match_parent"
 xmlns:app="http://schemas.android.com/apk/res-auto">
 
-<TextView
-    android:id="@+id/left_text"
-    android:layout_width="0dp"
-    android:layout_height="wrap_content"
-    android:text="あ"
-    app:layout_constraintLeft_toLeftOf="parent"
-    app:layout_constraintRight_toLeftOf="@+id/right_text"
-    android:textSize="20sp"
-    android:textAlignment="center"
-    />
+    <TextView
+        android:id="@+id/first_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text=""
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/second_text"
+        android:textSize="14sp"
+        android:textAlignment="center"
+        app:layout_constraintHorizontal_weight="1"/>
 
-<TextView
-    android:id="@+id/right_text"
-    android:layout_width="0dp"
-    android:layout_height="wrap_content"
-    android:text="A"
-    app:layout_constraintLeft_toRightOf="@+id/left_text"
-    app:layout_constraintRight_toRightOf="parent"
-    android:textSize="20sp"
-    android:textAlignment="center"/>
+    <TextView
+        android:id="@+id/second_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text=""
+        app:layout_constraintLeft_toRightOf="@id/first_text"
+        app:layout_constraintRight_toLeftOf="@id/third_text"
+        android:textSize="14sp"
+        android:textAlignment="center"
+        app:layout_constraintHorizontal_weight="2"/>
+
+    <TextView
+        android:id="@+id/third_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text=""
+        app:layout_constraintLeft_toRightOf="@id/second_text"
+        app:layout_constraintRight_toLeftOf="@id/fourth_text"
+        android:textSize="14sp"
+        android:textAlignment="center"
+        app:layout_constraintHorizontal_weight="3"/>
+    <TextView
+        android:id="@+id/fourth_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text=""
+        app:layout_constraintLeft_toRightOf="@+id/third_text"
+        app:layout_constraintRight_toRightOf="parent"
+        android:textSize="12sp"
+        android:textAlignment="center"
+        app:layout_constraintHorizontal_weight="4"/>
 
 </android.support.constraint.ConstraintLayout>
